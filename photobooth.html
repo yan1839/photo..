@@ -13,9 +13,10 @@
   :root {
     --pink: #FF6B9D;
     --pink-light: #FFB3D0;
-    --pink-pale: #FFF0F6;
-    --yellow: #FFE14D;
-    --dark: #1a0a0f;
+    --pink-pale: #FFF9E6;
+    --yellow: #F5C842;
+    --yellow-deep: #E0A800;
+    --dark: #3a2a00;
     --white: #FFFFFF;
     --radius: 16px;
   }
@@ -52,7 +53,7 @@
   .logo {
     font-family: 'Jua', sans-serif;
     font-size: 22px;
-    color: var(--pink);
+    color: var(--dark);
     letter-spacing: -0.5px;
     display: flex;
     align-items: center;
@@ -61,7 +62,7 @@
 
   .logo-dot {
     width: 8px; height: 8px;
-    background: var(--yellow);
+    background: var(--pink);
     border-radius: 50%;
     display: inline-block;
   }
@@ -99,7 +100,7 @@
   .film-frame {
     width: 72px; height: 72px;
     border-radius: 10px;
-    background: linear-gradient(135deg, #FFB3D0, #FF6B9D);
+    background: #FFD966;
     border: 3px solid var(--dark);
     position: relative;
     overflow: hidden;
@@ -113,9 +114,9 @@
     border-radius: 7px;
   }
 
-  .film-frame:nth-child(1) { background: linear-gradient(135deg, #FFE14D, #FFB347); width: 64px; height: 64px; }
-  .film-frame:nth-child(3) { background: linear-gradient(135deg, #B5EAD7, #6BC5A8); width: 64px; height: 64px; }
-  .film-frame:nth-child(4) { background: linear-gradient(135deg, #C7B9FF, #9B7FE8); }
+  .film-frame:nth-child(1) { background: #FFB3D0; width: 64px; height: 64px; }
+  .film-frame:nth-child(3) { background: #B5EAD7; width: 64px; height: 64px; }
+  .film-frame:nth-child(4) { background: #C7B9FF; }
 
   .start-text {
     text-align: center;
@@ -139,14 +140,14 @@
     width: 100%;
     max-width: 280px;
     padding: 18px;
-    background: var(--pink);
-    color: white;
+    background: var(--yellow);
+    color: var(--dark);
     border: none;
     border-radius: 50px;
     font-family: 'Jua', sans-serif;
     font-size: 18px;
     cursor: pointer;
-    box-shadow: 0 6px 0 #c94480;
+    box-shadow: 0 6px 0 var(--yellow-deep);
     transition: transform 0.1s, box-shadow 0.1s;
     display: flex;
     align-items: center;
@@ -156,7 +157,7 @@
 
   .btn-start:active {
     transform: translateY(3px);
-    box-shadow: 0 3px 0 #c94480;
+    box-shadow: 0 3px 0 var(--yellow-deep);
   }
 
   /* ── CAMERA SCREEN ── */
@@ -276,7 +277,7 @@
   .cam-bar {
     width: 100%;
     padding: 16px 24px;
-    background: var(--dark);
+    background: #3a2a00;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -288,7 +289,7 @@
     width: 72px; height: 72px;
     border-radius: 50%;
     background: white;
-    border: 4px solid var(--pink);
+    border: 4px solid var(--yellow);
     cursor: pointer;
     position: relative;
     transition: transform 0.1s;
@@ -301,7 +302,7 @@
     position: absolute;
     inset: 6px;
     border-radius: 50%;
-    background: var(--pink);
+    background: var(--yellow);
   }
 
   .btn-shutter:active { transform: scale(0.92); }
@@ -357,20 +358,20 @@
   .btn-dl {
     width: 100%;
     padding: 16px;
-    background: var(--pink);
-    color: white;
+    background: var(--yellow);
+    color: var(--dark);
     border: none;
     border-radius: 50px;
     font-family: 'Jua', sans-serif;
     font-size: 17px;
     cursor: pointer;
-    box-shadow: 0 5px 0 #c94480;
+    box-shadow: 0 5px 0 var(--yellow-deep);
     transition: transform 0.1s, box-shadow 0.1s;
   }
 
   .btn-dl:active {
     transform: translateY(2px);
-    box-shadow: 0 3px 0 #c94480;
+    box-shadow: 0 3px 0 var(--yellow-deep);
   }
 
   .btn-retry {
@@ -386,7 +387,7 @@
     transition: background 0.15s;
   }
 
-  .btn-retry:active { background: var(--pink-pale); }
+  .btn-retry:active { background: #fff0e8; }
 
   /* Error */
   .cam-error {
@@ -415,7 +416,7 @@
   <div class="header">
     <div class="logo">
       <span class="logo-dot"></span>
-      인생네컷
+      얀생네컷
       <span class="logo-dot"></span>
     </div>
   </div>
@@ -434,8 +435,8 @@
     </div>
 
     <div class="start-text">
-      <div class="start-title">오늘의 네 컷을<br>남겨볼까요? 📸</div>
-      <div class="start-sub">3초 카운트 후 자동 촬영<br>4장을 찍어 예쁜 필름으로 완성!</div>
+      <div class="start-title">🎂 이하은 생일파티<br>네 컷 남기기!</div>
+      <div class="start-sub">3초 카운트 후 자동 촬영<br>4장 찍어 필름으로 완성!</div>
     </div>
 
     <!-- 에러 메시지 (시작 화면에서 바로 표시) -->
@@ -657,52 +658,57 @@ function buildStrip() {
   const PAD = 28;
   const GAP = 16;
   const STRIP_W = FRAME_W + PAD * 2;
-  const HEADER_H = 80;
-  const FOOTER_H = 90;
+  const HEADER_H = 96;
+  const FOOTER_H = 100;
   const STRIP_H = HEADER_H + (FRAME_H + GAP) * 4 - GAP + FOOTER_H + PAD;
 
   canvas.width = STRIP_W;
   canvas.height = STRIP_H;
   const ctx = canvas.getContext('2d');
 
-  // Background — warm cream
-  ctx.fillStyle = '#FFF8F3';
+  // 배경 — 노란색
+  ctx.fillStyle = '#F5C842';
   ctx.fillRect(0, 0, STRIP_W, STRIP_H);
 
-  // Outer border accent
-  ctx.strokeStyle = '#FF6B9D';
-  ctx.lineWidth = 6;
-  ctx.strokeRect(3, 3, STRIP_W - 6, STRIP_H - 6);
+  // 외곽 테두리 — 흰색 점선 느낌 (double border)
+  ctx.strokeStyle = '#ffffff';
+  ctx.lineWidth = 5;
+  ctx.strokeRect(6, 6, STRIP_W - 12, STRIP_H - 12);
+  ctx.strokeStyle = '#E0A800';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(14, 14, STRIP_W - 28, STRIP_H - 28);
 
-  // Header text
-  ctx.font = 'bold 32px serif';
-  ctx.fillStyle = '#FF6B9D';
+  // 헤더 — 꽃 이모지 + 얀생네컷
+  ctx.font = 'bold 36px serif';
+  ctx.fillStyle = '#ffffff';
   ctx.textAlign = 'center';
-  ctx.fillText('✿ 인생네컷 ✿', STRIP_W / 2, HEADER_H - 24);
+  ctx.fillText('🌸 얀생네컷 🌸', STRIP_W / 2, HEADER_H - 22);
 
-  // Sprocket holes
+  // 스프로킷 홀 (흰색)
   function drawHoles(x) {
-    for (let i = 0; i < 10; i++) {
-      const y = HEADER_H + i * ((STRIP_H - HEADER_H - FOOTER_H) / 10);
-      ctx.fillStyle = '#FFE14D';
+    const count = 10;
+    const zone = STRIP_H - HEADER_H - FOOTER_H - PAD;
+    for (let i = 0; i < count; i++) {
+      const y = HEADER_H + i * (zone / count);
+      ctx.fillStyle = 'rgba(255,255,255,0.7)';
       roundRect(ctx, x - 6, y + 4, 12, 18, 3, true, false);
     }
   }
   drawHoles(PAD / 2);
   drawHoles(STRIP_W - PAD / 2);
 
-  // Draw 4 photos
+  // 사진 4장
   const loadPromises = photos.map((src, i) => {
     return new Promise(resolve => {
       const img = new Image();
       img.onload = () => {
         const y = HEADER_H + i * (FRAME_H + GAP);
-        // Shadow
-        ctx.fillStyle = 'rgba(0,0,0,0.12)';
-        ctx.fillRect(PAD + 3, y + 3, FRAME_W, FRAME_H);
-        // Photo
+        // 사진 테두리 흰색
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(PAD - 4, y - 4, FRAME_W + 8, FRAME_H + 8);
+        // 사진
         ctx.save();
-        roundRectClip(ctx, PAD, y, FRAME_W, FRAME_H, 8);
+        roundRectClip(ctx, PAD, y, FRAME_W, FRAME_H, 6);
         const scale = Math.max(FRAME_W / img.width, FRAME_H / img.height);
         const sw = img.width * scale, sh = img.height * scale;
         ctx.drawImage(img, PAD + (FRAME_W - sw) / 2, y + (FRAME_H - sh) / 2, sw, sh);
@@ -714,16 +720,21 @@ function buildStrip() {
   });
 
   Promise.all(loadPromises).then(() => {
-    // Footer
-    const now = new Date();
-    const date = `${now.getFullYear()}.${String(now.getMonth()+1).padStart(2,'0')}.${String(now.getDate()).padStart(2,'0')}`;
-    ctx.font = '22px serif';
-    ctx.fillStyle = '#c94480';
+    // 푸터 배경 패널
+    const footerY = STRIP_H - FOOTER_H - PAD / 2;
+    ctx.fillStyle = 'rgba(255,255,255,0.3)';
+    roundRect(ctx, PAD, footerY, FRAME_W, FOOTER_H - 4, 12, true, false);
+
+    // 날짜
+    ctx.font = 'bold 28px serif';
+    ctx.fillStyle = '#ffffff';
     ctx.textAlign = 'center';
-    ctx.fillText(date, STRIP_W / 2, STRIP_H - FOOTER_H + 36);
-    ctx.font = '18px serif';
-    ctx.fillStyle = '#FFAECE';
-    ctx.fillText('♡ 오늘도 빛나는 하루 ♡', STRIP_W / 2, STRIP_H - FOOTER_H + 66);
+    ctx.fillText('2026.5.16', STRIP_W / 2, footerY + 38);
+
+    // 생일 문구
+    ctx.font = '22px serif';
+    ctx.fillStyle = '#3a2a00';
+    ctx.fillText('🎂 2026 이하은 생일파티 🎂', STRIP_W / 2, footerY + 72);
   });
 }
 
@@ -762,7 +773,7 @@ function roundRectClip(ctx, x, y, w, h, r) {
 $('btn-dl').addEventListener('click', () => {
   const canvas = $('strip-canvas');
   const a = document.createElement('a');
-  a.download = `인생네컷_${Date.now()}.jpg`;
+  a.download = `얀생네컷_이하은생일파티.jpg`;
   a.href = canvas.toDataURL('image/jpeg', 0.95);
   a.click();
 });
